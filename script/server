@@ -2,5 +2,6 @@
 
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 BIN_DIR="$(readlink -f $SCRIPT_DIR/../bin)"
+CONFIG_DIR="$(readlink -f $SCRIPT_DIR/../config)"
 
-$BIN_DIR/puma
+$BIN_DIR/puma -C $CONFIG_DIR/puma.rb
