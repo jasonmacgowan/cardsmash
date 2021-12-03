@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+BIN_DIR="$(readlink -f $SCRIPT_DIR/../bin)"
+
+if [ "$CI" == "true" ]
+then
+  $BIN_DIR/rubocop -f github
+else
+  $BIN_DIR/rubocop
+fi
